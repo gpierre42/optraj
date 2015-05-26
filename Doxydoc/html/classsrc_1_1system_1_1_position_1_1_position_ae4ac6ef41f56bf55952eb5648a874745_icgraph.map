@@ -1,0 +1,6 @@
+<map id="src.system.Position.Position.longitude" name="src.system.Position.Position.longitude">
+<area shape="rect" id="node2" href="$classsrc_1_1system_1_1_position_1_1_position.html#a2829ca636f233035920dd1771fd8738b" title="calcule la distance à vol d&#39;oiseau entre la position courante et celle passée en paramètre ..." alt="" coords="302,5,519,46"/>
+<area shape="rect" id="node4" href="$classsrc_1_1system_1_1_position_1_1_position.html#a59808c44ead8f5c1c6df130743d1cede" title="retourne la position sous une forme lisible pour l&#39;humain. " alt="" coords="314,70,507,111"/>
+<area shape="rect" id="node5" href="$classsrc_1_1system_1_1_position_1_1_position.html#aac5fa0ff4cbeea8961b2ef764b22ce76" title="serialise une position pour pouvoir la transmettre facilement " alt="" coords="299,136,523,163"/>
+<area shape="rect" id="node3" href="$classsrc_1_1system_1_1_position_1_1_position.html#ae69edb2f29b8534b410e4b60af3d311e" title="retourne la distance en mètres entre 2 positions " alt="" coords="571,5,789,46"/>
+</map>

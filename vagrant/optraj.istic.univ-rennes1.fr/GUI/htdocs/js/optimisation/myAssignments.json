@@ -1,0 +1,59 @@
+{
+	"assignments" : [
+		{
+			"id": 1, 
+			"id_site": 1,
+			"id_worker": 2, 
+			"date_initY": "2014",
+			"date_initM": "01",
+			"date_initD": "10",
+			"date_endY": "2014",
+			"date_endM": "03",
+			"date_endD": "15"
+		}, 
+		{
+			"id": 2, 
+			"id_site": 1,
+			"id_worker": 5, 
+			"date_initY": "2014",
+			"date_initM": "01",
+			"date_initD": "29",
+			"date_endY": "2014",
+			"date_endM": "11",
+			"date_endD": "15"
+		},
+		{
+			"id": 3, 
+			"id_site": 2,
+			"id_worker": 1, 
+			"date_initY": "2014",
+			"date_initM": "02",
+			"date_initD": "10",
+			"date_endY": "2014",
+			"date_endM": "04",
+			"date_endD": "07"
+		}, 
+      {
+			"id": 4, 
+			"id_site": 3,
+			"id_worker": 4, 
+			"date_initY": "2014",
+			"date_initM": "01",
+			"date_initD": "05",
+			"date_endY": "2014",
+			"date_endM": "05",
+			"date_endD": "05"
+      }, 
+      {
+			"id": 5, 
+			"id_site": 3,
+			"id_worker": 3, 
+			"date_initY": "2014",
+			"date_initM": "01",
+			"date_initD": "15",
+			"date_endY": "2014",
+			"date_endM": "11",
+			"date_endD": "15"
+      }
+	]
+}

@@ -1,0 +1,79 @@
+<script src="js/util/connexionProxy.js"></script>
+<script src="js/bootstrap/jquery-1.10.2.js"></script>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>OPTRAJ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css"  href="css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Roboto:300' rel='stylesheet' type='text/css'>
+		<!--[if IE]>  
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+		<![endif]-->
+		<link href="css/bootstrap/bootstrap-formhelpers.min.css" rel="stylesheet">
+	    <!-- Core CSS - Include with every page -->
+	    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+	    <!-- SB Admin CSS - Include with every page -->
+	    <link href="css/bootstrap/sb-admin.css" rel="stylesheet">
+	    <link href="css/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+		<style type="text/css">
+			/* Fix Google Maps canvas
+			*
+			* Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
+			* global `box-sizing` changes. You may optionally need to reset the `max-width`
+			* on images in case you've applied that anywhere else. (That shouldn't be as
+			* necessary with Bootstrap 3 though as that behavior is relegated to the
+			* `.img-responsive` class.)
+			*/
+			
+			.google-map-canvas,
+			.google-map-canvas * { .box-sizing(content-box); }
+			
+			/* Optional responsive image override */
+			img { max-width: none; }
+		</style>
+    </head>
+    <body>
+    <input name="url" required placeholder="url"><button type="button" onclick="$('input[name=url]').val('');">clear</button><br/>
+    <input name="namedata1" required placeholder="nom">
+    <input name="data1" required placeholder="valeur">
+    <button type="button" onclick="$('input[name=data1]').val('');$('input[name=namedata1]').val('')">clear</button><br/>
+    <input name="namedata2" required placeholder="nom">
+    <input name="data2" required placeholder="valeur">
+    <button type="button" onclick="$('input[name=data2]').val('');$('input[name=namedata2]').val('')">clear</button><br/>
+    <input name="namedata3" required placeholder="nom">
+    <input name="data3" required placeholder="valeur">
+    <button type="button" onclick="$('input[name=data3]').val('');$('input[name=namedata3]').val('')">clear</button><br/>
+    <button type="button" onclick="test();">test</button>
+    <script>
+    var urlTest = "templates/proxy.php?url=http://localhost:5000/";
+    function test(){
+    	if($('input[name=data1]').val() != '' && $('input[name=namedata1]').val() != ''){
+    		var data = new FormData();
+    		var s = $('input[name=namedata1]').val()+'='+$('input[name=data1]').val();
+    		console.log($('input[name=data2]').val())
+    		if($('input[name=data2]').val() != '' && $('input[name=namedata1]').val() != ''){
+    			s+='^'+$('input[name=namedata2]').val()+'='+$('input[name=data2]').val();
+    			if($('input[name=data3]').val() != '' && $('input[name=namedata3]').val() != ''){
+    				s+='^'+$('input[name=namedata3]').val()+'='+$('input[name=data3]').val();
+    			}
+    		}
+    		data.append('data', s);
+    		console.log(urlTest+$('input[name=url]').val());
+    		console.log(s);
+    		request(urlTest+$('input[name=url]').val(), result, data);
+    	}
+    	else{
+    		request(urlTest+$('input[name=url]').val(), result);
+    	}    	
+    }
+    function result(xhr){
+    	console.log(JSON.parse(xhr.responseText))
+    	console.log(JSON.parse(xhr.responseText)["data"])
+    }
+    </script>
+
+    </body>
+</html>

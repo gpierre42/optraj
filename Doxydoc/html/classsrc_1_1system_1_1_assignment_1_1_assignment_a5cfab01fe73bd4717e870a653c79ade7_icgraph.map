@@ -1,0 +1,6 @@
+<map id="src.system.Assignment.Assignment.num" name="src.system.Assignment.Assignment.num">
+<area shape="rect" id="node2" href="$classsrc_1_1system_1_1_build_site_1_1_build_site.html#a43e3713197f2a589f4674d19b8df67c0" title="serialise un chantier pour pouvoir le transmettre facilement " alt="" coords="337,5,513,46"/>
+<area shape="rect" id="node3" href="$classsrc_1_1system_1_1_site_1_1_site.html#a57bc8ec56d0adc43b55064e1989a1502" title="serialise un chantier pour pouvoir le transmettre facilement " alt="" coords="337,71,513,97"/>
+<area shape="rect" id="node4" href="$classsrc_1_1system_1_1_worker_1_1_worker.html#a771360c3aaa0dd2be470ad6c885beb37" title="Renvois un worker sous une forme lisible pour l&#39;humain. " alt="" coords="334,122,517,163"/>
+<area shape="rect" id="node5" href="$classsrc_1_1system_1_1_worker_1_1_worker.html#a346ba2efb749b79fff836f4696256a11" title="serialise une affectation pour pouvoir la transmettre facilement " alt="" coords="318,188,533,215"/>
+</map>

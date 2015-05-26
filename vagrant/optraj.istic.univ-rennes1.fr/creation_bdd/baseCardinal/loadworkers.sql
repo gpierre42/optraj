@@ -1,0 +1,9 @@
+USE `optraj_bdd`;
+
+LOAD DATA LOCAL INFILE "/vagrant/optraj.istic.univ-rennes1.fr/creation_bdd/baseCardinal/dataworkers.csv"
+REPLACE
+INTO TABLE WORKER
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+(ID, NAME, FIRST_NAME, BIRTHDATE, LICENCE, ID_POSITION, ID_QUALIFICATION, ID_CRAFT);

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>mysqldump -u Client -ppassword optraj_bdd &gt; optraj_bdd.dump
+echo &quot;******** TEST PYTHON ********&quot;
+nosetests --cover-erase --with-xunit --with-cov --cov /vagrant/optraj.istic.univ-rennes1.fr/src  /vagrant/optraj.istic.univ-rennes1.fr/src/tests*  
+mysql -u Client -ppassword optraj_bdd --local-infile &lt; optraj_bdd.dump 
+rm optraj_bdd.dump</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

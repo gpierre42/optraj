@@ -1,0 +1,15 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node3" href="$classsrc_1_1interfacebdd_1_1_assignment_d_a_o_1_1_assignment_d_a_o.html" title="src.interfacebdd.Assignment\lDAO.AssignmentDAO" alt="" coords="159,5,345,51"/>
+<area shape="rect" id="node5" href="$classsrc_1_1interfacebdd_1_1_car_d_a_o_1_1_car_d_a_o.html" title="src.interfacebdd.CarDAO.\lCarDAO" alt="" coords="165,74,339,121"/>
+<area shape="rect" id="node7" href="$classsrc_1_1interfacebdd_1_1_craft_d_a_o_1_1_craft_d_a_o.html" title="src.interfacebdd.CraftDAO.\lCraftDAO" alt="" coords="161,143,343,190"/>
+<area shape="rect" id="node9" href="$classsrc_1_1interfacebdd_1_1_need_d_a_o_1_1_need_d_a_o.html" title="src.interfacebdd.NeedDAO.\lNeedDAO" alt="" coords="161,213,343,259"/>
+<area shape="rect" id="node11" href="$classsrc_1_1interfacebdd_1_1_passenger_d_a_o_1_1_passenger_d_a_o.html" title="src.interfacebdd.Passenger\lDAO.PassengerDAO" alt="" coords="161,282,343,329"/>
+<area shape="rect" id="node13" href="$classsrc_1_1interfacebdd_1_1_phase_d_a_o_1_1_phase_d_a_o.html" title="src.interfacebdd.PhaseDAO.\lPhaseDAO" alt="" coords="157,351,347,398"/>
+<area shape="rect" id="node15" href="$classsrc_1_1interfacebdd_1_1_pickup_d_a_o_1_1_pickup_d_a_o.html" title="src.interfacebdd.PickupDAO.\lPickupDAO" alt="" coords="156,421,348,467"/>
+<area shape="rect" id="node17" href="$classsrc_1_1interfacebdd_1_1_pickup_link_d_a_o_1_1_pickup_link_d_a_o.html" title="src.interfacebdd.PickupLink\lDAO.PickupLinkDAO" alt="" coords="161,490,343,537"/>
+<area shape="rect" id="node19" href="$classsrc_1_1interfacebdd_1_1_position_d_a_o_1_1_position_d_a_o.html" title="src.interfacebdd.Position\lDAO.PositionDAO" alt="" coords="169,559,335,606"/>
+<area shape="rect" id="node21" href="$classsrc_1_1interfacebdd_1_1_qualification_d_a_o_1_1_qualification_d_a_o.html" title="src.interfacebdd.Qualification\lDAO.QualificationDAO" alt="" coords="157,629,347,675"/>
+<area shape="rect" id="node23" href="$classsrc_1_1interfacebdd_1_1_shuttle_d_a_o_1_1_shuttle_d_a_o.html" title="src.interfacebdd.Shuttle\lDAO.ShuttleDAO" alt="" coords="172,698,332,745"/>
+<area shape="rect" id="node25" href="$classsrc_1_1interfacebdd_1_1_site_d_a_o_1_1_site_d_a_o.html" title="src.interfacebdd.SiteDAO.\lSiteDAO" alt="" coords="165,767,339,814"/>
+<area shape="rect" id="node27" href="$classsrc_1_1interfacebdd_1_1_worker_d_a_o_1_1_worker_d_a_o.html" title="src.interfacebdd.WorkerDAO.\lWorkerDAO" alt="" coords="155,837,349,883"/>
+</map>

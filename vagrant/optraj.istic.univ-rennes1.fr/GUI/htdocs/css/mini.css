@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***************** GENERAL *****************/
+body{
+	background: #ddd;
+	font-family: 'Open Sans Condensed','Arial Narrow', serif;
+	font-weight: 300;
+	font-size: 15px;
+	color: #333;
+	width: 100%;
+	min-width: 510px;
+}
+header{
+	position: relative;
+	margin: 10px;
+	padding: 20px 10px 10px 10px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+}
+header h1{
+	font-size: 40px;
+	line-height: 40px;
+	margin: 0;
+	font-weight: 300;
+	color: #c00303;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+header h1 span{
+	font-weight: 600;
+}
+header h2{
+	font-size: 14px;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px 0 5px 0;
+	color: #8f7c7c;
+	font-family: Cambria, Georgia, serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
+}
+
+footer{
+	position: relative;
+	margin: 10px;
+	padding: 0px 0px 20px 10px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+footer h2{
+	font-size: 14px;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px 0 5px 0;
+	color: #8f7c7c;
+	font-family: Cambria, Georgia, serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
+}
+
+/***************** CORPS *****************/
+
+#corps {
+	z-index: 0;
+	font-family: 'Roboto','Arial Narrow', serif;
+	font-weight: 300;
+	color: #555;
+    background: #fff;
+	position: relative;
+    width: auto;
+    margin: 0px 20px 40px 20px;
+	height: auto;
+    box-shadow: -6px 8px 6px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 20px 40px;
+    text-align: justify
+}
+#corps h2{
+	color: #333;
+}
+#corps h3{
+	color: #333;
+}
+
+/***************** MENU *****************/
+
+#menu {
+	position:absolute;
+	background:#333;
+	border-radius: 5px 0px 0px 5px;
+	margin:20px;
+	font-size:22px;
+	text-transform: uppercase;
+	text-align : right;
+	text-indent: -15px;
+	width:140px;
+	box-shadow: -2px 2px 20px 8px rgba(0,0,0,0.2);
+	
+}
+#menu ul {
+	padding:0px;
+	margin:0px;
+	list-style:none;
+}
+#menu li li {
+   max-height:0;
+   overflow: hidden;
+   background: #444;
+}
+#menu a {	
+	display:block;
+	text-decoration: none;
+	color: #fff;
+	padding: 4px;
+}
+#menu ul li a {
+	padding-right : 30px;
+}
+#menu li:hover li a {
+	padding-right : 20px;
+}
+#menu li:hover {
+	background: #666;
+}
+#menu li li:hover {
+	background: #999;
+}
+#menu li:first-child {
+	border-radius: 5px 0px 0px 0px;
+}
+#menu li:last-child {
+	border-radius: 0px 0px 0px 5px;
+}
+#menu li:hover li {
+	max-height: 2em;
+}
+#menu li .chg {
+	border-radius: 5px 0px 0px 0px;
+}
+#menu li .cbg {
+	border-radius: 0px 0px 0px 5px;
+}
+
+/***************** AUTRES *****************/
+
+#choix1 {
+	border-radius: 5px 0px 0px 0px;
+}
+#choix4 {
+	border-radius: 0px 5px 0px 0px;
+}
+#lienInv {
+	text-decoration: none;
+}

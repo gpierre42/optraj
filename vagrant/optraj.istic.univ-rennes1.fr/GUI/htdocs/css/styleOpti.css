@@ -1,0 +1,260 @@
+/*
+████████╗ █████╗ ██████╗ ██╗     ███████╗
+╚══██╔══╝██╔══██╗██╔══██╗██║     ██╔════╝
+   ██║   ███████║██████╔╝██║     █████╗  
+   ██║   ██╔══██║██╔══██╗██║     ██╔══╝  
+   ██║   ██║  ██║██████╔╝███████╗███████╗
+   ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+ */
+
+table tr {
+	text-align: center;
+	padding-left:20px;
+}
+table td:first-child {
+	text-align: left;
+	padding-left:5px;
+	border-left: 0;
+}
+table td {
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+	font-size: 0.9em;
+	overflow
+}
+table tr:last-child td {
+	border-bottom:0;
+}
+
+table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+
+table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+table tr:hover td.empty,
+table tr:hover td:nth-child(1),
+table tr:hover td:nth-child(2),
+table tr:hover td:nth-child(3){
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+table {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:12px;
+	/*text-shadow: 1px 1px 0px #fff;*/
+	background:#fafafa;
+	/*margin:20px;*/
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+	z-index: 9999;
+}
+
+thead{
+	border:#ccc 1px solid;
+}
+thead th.invisible {
+	background: black;
+}
+
+thead th.workerInfo, thead th.month, thead th.annee, thead th.weekNumber {
+	background: #ddd;
+	border:#AAA 1px solid;
+	text-align:center;
+}
+
+thead th.weekNumber{
+	background:#ededed;
+	cursor:pointer;
+}
+
+thead th.weekNumber:hover{
+	background: #ccc;
+	cursor:pointer;
+}
+
+
+thead th.workerInfo:hover {
+	cursor:pointer;
+	background: #ccc;
+}
+
+/*
+ ██████╗ █████╗ ███████╗███████╗███████╗
+██╔════╝██╔══██╗██╔════╝██╔════╝██╔════╝
+██║     ███████║███████╗█████╗  ███████╗
+██║     ██╔══██║╚════██║██╔══╝  ╚════██║
+╚██████╗██║  ██║███████║███████╗███████║
+ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+ */
+.assigned, .modified, .empty, .proposal{
+	cursor:pointer;
+	/*color: black;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-shadow: 1px 0 0 #fff,
+	-1px 0 0 #fff,
+	0 1px 0 #fff,
+	0 -1px 0 #fff,
+	1px 1px #fff,
+	-1px -1px 0 #fff,
+	1px -1px 0 #fff,
+	-1px 1px 0 #fff;*/
+	overflow:hidden;
+	font-size: 0.9em;
+}
+
+.modified{
+	border : 3px solid rgba(0,175,0,1);
+}
+
+.proposal{
+	border : 3px solid rgba(255,0,0,1);
+}
+
+.unavailability{
+	cursor:pointer;
+	background: rgba(200,200,200,1);
+	color:black;
+	text-shadow: white 0.1em 0.1em 0.2em;
+}
+
+.selected{
+	border: 2px dashed black;
+}
+
+.buttonstatus{
+	width: 150px;
+}
+
+
+
+/*********************************
+██████╗  ██████╗ ██████╗  ██████╗ ██╗   ██╗███████╗██████╗ 
+██╔══██╗██╔═══██╗██╔══██╗██╔═══██╗██║   ██║██╔════╝██╔══██╗
+██████╔╝██║   ██║██████╔╝██║   ██║██║   ██║█████╗  ██████╔╝
+██╔═══╝ ██║   ██║██╔═══╝ ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
+██║     ╚██████╔╝██║     ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
+╚═╝      ╚═════╝ ╚═╝      ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
+                                                           
+*********************************/
+
+.col-popup-indic{
+	padding:0;
+}
+
+.list-site{
+	padding: 3px 1px;
+}
+
+
+.popover{
+	text-align:center;
+}
+.popover .row{
+	margin: 5px;
+	width:100%;
+}
+.popover-content{
+	padding:0px 10px 0px 0px;
+}
+.popover-title{
+	padding-top:4px;
+}
+
+.popup{
+	z-index: 999;
+	border: 1px solid black;
+	position: absolute;
+	width: 150px;
+	background: white;
+	padding: 3px 7px;
+	-moz-border-radius:3px; /* mozilla */
+	-webkit-border-radius:3px; /* safari */
+	color: black;
+	text-align: left;
+	cursor: default;
+}
+
+.popupWeek{
+	z-index: 999;
+	border: 1px solid black;
+	position: absolute;
+	width: 150px;
+	height: auto;
+	background: white;
+	padding: 3px 7px;
+	-moz-border-radius:3px; /* mozilla */
+	-webkit-border-radius:3px; /* safari */
+	color: black;
+	text-align: left;
+	cursor: default;
+}
+
+#popover-list{
+	width:100%;
+	color:white;
+	text-shadow:0.1em 0.1em 0.2em #000}
+
+.popover-indicator > .popover-content{
+	padding:0px;
+	margin:0 0 -20px 0;
+}
+
+.indicatorsTable{
+	border:none;
+	background:transparent;
+	margin:0px;
+}
+
+.indicatorsTable tr, .indicatorsTable tr:hover{
+	border:none;
+	background:inherit;
+	padding:0px;
+}
+
+.indicatorsTable td{
+	border:none;
+	background:inherit;
+	padding:5px;
+}
+
+.fullfilled td{
+	color:green;
+
+}
+
+.unfullfilled td{
+	color:red;
+}
+
+.tooltip-inner{
+	background:white;
+	border:1px solid #AAA;
+}
+
+.tooltip > .tooltip-inner{
+	color:black;
+}
+
+

@@ -1,0 +1,17 @@
+Pour installer la vm Vagrant avec tout le necessaire suivi c'est étapes :
+1-Installation de la VM avec le commande :
+	vagrant up
+2-Connexion sur la VM pour la fin de la configuration :
+	vagrant ssh
+3-Installation de Mysql, et du git OPTRAJ :
+	sh /vagrant/init.sh
+Là, on va vous demander un password pour Mysql, mettez 'password' sans les quotes, puis taper entrer et on recommence une deuxième fois
+Ensuite, on vous demande un identifiant et mot de passe pour git, c'est votre identifiant et mot de passe de l'ENT comme d'habitude
+4-Voilà, l'installe est terminée. Aller sur votre navigateur préféré et taper localhost:1234/optraj dans le champs de l'url :p 
+
+Pour les futur connexion, penser a démarrer flask après vous etre logué en ssh sur la VM avec la commande :
+python2.7 /vagrant/optraj.istic.univ-rennes1.fr/src/index.py &
+
+Dernnière info, si vous migrer vers vagrant completement (ce qui est conseillé, c'est super cool :p) et que vous voulez changer de branche, vous faite vos commande habituelle de git depuis la session ssh de vagrant, et pour mettre a jour les fichiers de la bdd et relancer l'index.py, il vous suffit de faire :
+sh /vagrant/start.sh
+	

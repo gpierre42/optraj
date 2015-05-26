@@ -1,0 +1,11 @@
+VAGRANTFILE_API_VERSION = "2"
+ 
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+config.vm.box = "precise64_vagrant122"
+config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+config.vm.provision :shell, :path => "bootstrap.sh"
+config.vm.network :forwarded_port, host: 1234, guest: 80
+config.vm.network :forwarded_port, host: 1245, guest: 5000
+config.vm.network :forwarded_port, host: 3306, guest: 3306
+config.vm.network :forwarded_port, host: 4567, guest: 8080
+end

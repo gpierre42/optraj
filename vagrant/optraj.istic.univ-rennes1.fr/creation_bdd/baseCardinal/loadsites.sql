@@ -1,0 +1,9 @@
+USE `optraj_bdd`;
+
+LOAD DATA LOCAL INFILE "/vagrant/optraj.istic.univ-rennes1.fr/creation_bdd/baseCardinal/datasites.csv"
+REPLACE
+INTO TABLE SITE
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+(ID, NUM_SITE, NAME, SITE_MASTER, SITE_MANAGER, DATE_INIT, DATE_END, ID_POSITION, COLOR);

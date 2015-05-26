@@ -1,0 +1,10 @@
+/*
+CARRE NICOLAS
+OPTRAJ
+*/
+
+(function() {
+	if (sessionStorage.isco == 0 || sessionStorage.lvladminreq ==2) {
+		reportError("Vous n'avez pas accès à cette page", null, "./index.php")
+	}
+})();

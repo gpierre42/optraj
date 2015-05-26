@@ -1,0 +1,6 @@
+<map id="src.interfacebdd.AbstractDAO.AbstractDAO.insert" name="src.interfacebdd.AbstractDAO.AbstractDAO.insert">
+<area shape="rect" id="node2" href="$classsrc_1_1interfacebdd_1_1_abstract_d_a_o_1_1_abstract_d_a_o.html#ad78a6997ddf6be035df24ef4a0395736" title="src.interfacebdd.Abstract\lDAO.AbstractDAO.joins" alt="" coords="238,5,405,46"/>
+<area shape="rect" id="node3" href="$classsrc_1_1interfacebdd_1_1_abstract_d_a_o_1_1_abstract_d_a_o.html#a234029a022fd7726dea266ba5dfe5cbd" title="src.interfacebdd.Abstract\lDAO.AbstractDAO.tableName" alt="" coords="223,70,420,111"/>
+<area shape="rect" id="node4" href="$classsrc_1_1interfacebdd_1_1_abstract_d_a_o_1_1_abstract_d_a_o.html#a52ac76b329acbea36076a7872c0a9af9" title="Construit et initialise un objet pour accéder à la bdd. " alt="" coords="222,135,421,177"/>
+<area shape="rect" id="node5" href="$classsrc_1_1interfacebdd_1_1_abstract_d_a_o_1_1_abstract_d_a_o.html#ab7baabe45cdca232b62c0ca1d5fd7ba7" title="construit un chemin absolu " alt="" coords="469,135,656,177"/>
+</map>

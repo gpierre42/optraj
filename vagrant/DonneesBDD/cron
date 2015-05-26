@@ -1,0 +1,1 @@
+0 0 1,15 * * /vagrant/DonneesBDD/importWorkers.sh >> /vagrant/DonneesBDD/importWorkers.log 2>&1

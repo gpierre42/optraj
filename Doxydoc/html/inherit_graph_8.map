@@ -1,0 +1,13 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node3" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__car_d_a_o_1_1test__car_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="176,5,349,51"/>
+<area shape="rect" id="node5" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__craft_d_a_o_1_1test__craft_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="176,74,349,121"/>
+<area shape="rect" id="node7" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__need_d_a_o_1_1test__need_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="175,143,351,190"/>
+<area shape="rect" id="node9" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__passenger_d_a_o_1_1test__passenger_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="143,213,383,259"/>
+<area shape="rect" id="node11" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__pickup_d_a_o_1_1test__pickup_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="165,282,360,329"/>
+<area shape="rect" id="node13" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__pickup_link_d_a_o_1_1test__pickup_link_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="141,351,384,398"/>
+<area shape="rect" id="node15" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__position_d_a_o_1_1test__position_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="157,421,368,467"/>
+<area shape="rect" id="node17" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__qualification_d_a_o_1_1test__qualification_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="133,490,392,537"/>
+<area shape="rect" id="node19" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__shuttle_d_a_o_1_1test__shuttle_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="164,559,361,606"/>
+<area shape="rect" id="node21" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__site_d_a_o_1_1test__site_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="176,629,349,675"/>
+<area shape="rect" id="node23" href="$classsrc_1_1tests_1_1interfacebdd_1_1test__worker_d_a_o_1_1test__worker_d_a_o.html" title="Test the stand&#45;alone module functions. " alt="" coords="164,698,361,745"/>
+</map>

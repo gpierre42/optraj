@@ -1,0 +1,399 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema optraj_bdd
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `optraj_bdd` ;
+CREATE SCHEMA IF NOT EXISTS `optraj_bdd` DEFAULT CHARACTER SET latin1 ;
+USE `optraj_bdd` ;
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`POSITION`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`POSITION` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`POSITION` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `LATITUDE` FLOAT NOT NULL,
+  `LONGITUDE` FLOAT NOT NULL,
+  `ADDRESS` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1118
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`SITE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`SITE` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`SITE` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `NUM_SITE` VARCHAR(9) NOT NULL,
+  `NAME` VARCHAR(255) NOT NULL,
+  `SITE_MASTER` VARCHAR(30) NOT NULL,
+  `SITE_MANAGER` VARCHAR(30) NOT NULL,
+  `DATE_INIT` DATE NOT NULL,
+  `DATE_END` DATE NOT NULL,
+  `ID_POSITION` INT(10) UNSIGNED NOT NULL,
+  `COLOR` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_SITE_ID_POSITION` (`ID_POSITION` ASC),
+  CONSTRAINT `FK_SITE_ID_POSITION`
+    FOREIGN KEY (`ID_POSITION`)
+    REFERENCES `optraj_bdd`.`POSITION` (`ID`)
+    ON DELETE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 27
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`PHASE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`PHASE` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`PHASE` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_SITE` INT(10) UNSIGNED NOT NULL,
+  `NUM_WEEK` INT(10) UNSIGNED NOT NULL,
+  `NUM_YEAR` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_PHASE_ID_SITE` (`ID_SITE` ASC),
+  CONSTRAINT `FK_PHASE_ID_SITE`
+    FOREIGN KEY (`ID_SITE`)
+    REFERENCES `optraj_bdd`.`SITE` (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 42
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`CRAFT`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`CRAFT` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`CRAFT` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 22
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`QUALIFICATION`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`QUALIFICATION` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`QUALIFICATION` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`WORKER`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`WORKER` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`WORKER` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(30) NOT NULL,
+  `FIRST_NAME` VARCHAR(30) NOT NULL,
+  `BIRTHDATE` DATE NOT NULL,
+  `LICENCE` VARCHAR(30) NULL DEFAULT NULL,
+  `ID_POSITION` INT(10) UNSIGNED NOT NULL,
+  `ID_QUALIFICATION` INT(10) UNSIGNED NOT NULL,
+  `ID_CRAFT` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_WORKER_ID_QUALIFICATION` (`ID_QUALIFICATION` ASC),
+  INDEX `FK_WORKER_ID_CRAFT` (`ID_CRAFT` ASC),
+  INDEX `FK_WORKER_ID_POSITION` (`ID_POSITION` ASC),
+  CONSTRAINT `FK_WORKER_ID_CRAFT`
+    FOREIGN KEY (`ID_CRAFT`)
+    REFERENCES `optraj_bdd`.`CRAFT` (`ID`),
+  CONSTRAINT `FK_WORKER_ID_POSITION`
+    FOREIGN KEY (`ID_POSITION`)
+    REFERENCES `optraj_bdd`.`POSITION` (`ID`),
+  CONSTRAINT `FK_WORKER_ID_QUALIFICATION`
+    FOREIGN KEY (`ID_QUALIFICATION`)
+    REFERENCES `optraj_bdd`.`QUALIFICATION` (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 280
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`ASSIGNMENT`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`ASSIGNMENT` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`ASSIGNMENT` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_PHASE` INT(10) UNSIGNED NOT NULL,
+  `ID_WORKER` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_ASSIGNMENT_ID_PHASE` (`ID_PHASE` ASC),
+  INDEX `FK_ASSIGNMENT_ID_WORKER` (`ID_WORKER` ASC),
+  CONSTRAINT `FK_ASSIGNMENT_ID_PHASE`
+    FOREIGN KEY (`ID_PHASE`)
+    REFERENCES `optraj_bdd`.`PHASE` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_ASSIGNMENT_ID_WORKER`
+    FOREIGN KEY (`ID_WORKER`)
+    REFERENCES `optraj_bdd`.`WORKER` (`ID`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`CAR`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`CAR` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`CAR` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `PLATE` VARCHAR(30) NOT NULL,
+  `MODEL` VARCHAR(30) NOT NULL,
+  `NB_PLACE` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 236
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`CONSUMER`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`CONSUMER` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`CONSUMER` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `LOGIN` VARCHAR(30) NOT NULL,
+  `PWD` VARCHAR(100) NOT NULL,
+  `LVL` INT(10) UNSIGNED NOT NULL,
+  `FIRSTNAME` VARCHAR(30) NOT NULL,
+  `NAME` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `login_unicity` (`LOGIN` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`NEED`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`NEED` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`NEED` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_PHASE` INT(10) UNSIGNED NOT NULL,
+  `ID_CRAFT` INT(10) UNSIGNED NOT NULL,
+  `ID_QUALIFICATION` INT(10) UNSIGNED NOT NULL,
+  `NEED` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_NEED_ID_PHASE` (`ID_PHASE` ASC),
+  INDEX `FK_NEED_ID_CRAFT` (`ID_CRAFT` ASC),
+  INDEX `FK_NEED_ID_QUALIFICATION` (`ID_QUALIFICATION` ASC),
+  CONSTRAINT `FK_NEED_ID_CRAFT`
+    FOREIGN KEY (`ID_CRAFT`)
+    REFERENCES `optraj_bdd`.`CRAFT` (`ID`),
+  CONSTRAINT `FK_NEED_ID_PHASE`
+    FOREIGN KEY (`ID_PHASE`)
+    REFERENCES `optraj_bdd`.`PHASE` (`ID`),
+  CONSTRAINT `FK_NEED_ID_QUALIFICATION`
+    FOREIGN KEY (`ID_QUALIFICATION`)
+    REFERENCES `optraj_bdd`.`QUALIFICATION` (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 89
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`PICKUP`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`PICKUP` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`PICKUP` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_POSITION` INT(10) UNSIGNED NOT NULL,
+  `ID_SITE` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_PICKUP_ID_POSITION` (`ID_POSITION` ASC),
+  INDEX `FK_PICKUP_ID_SITE` (`ID_SITE` ASC),
+  CONSTRAINT `FK_PICKUP_ID_POSITION`
+    FOREIGN KEY (`ID_POSITION`)
+    REFERENCES `optraj_bdd`.`POSITION` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_PICKUP_ID_SITE`
+    FOREIGN KEY (`ID_SITE`)
+    REFERENCES `optraj_bdd`.`SITE` (`ID`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`SHUTTLE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`SHUTTLE` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`SHUTTLE` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_DRIVER` INT(10) UNSIGNED NOT NULL,
+  `ID_CAR` INT(10) UNSIGNED NOT NULL,
+  `ID_PHASE` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_SHUTTLE_ID_DRIVER` (`ID_DRIVER` ASC),
+  INDEX `FK_SHUTTLE_ID_CAR` (`ID_CAR` ASC),
+  INDEX `FK_SHUTTLE_ID_PHASE` (`ID_PHASE` ASC),
+  CONSTRAINT `FK_SHUTTLE_ID_CAR`
+    FOREIGN KEY (`ID_CAR`)
+    REFERENCES `optraj_bdd`.`CAR` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_SHUTTLE_ID_DRIVER`
+    FOREIGN KEY (`ID_DRIVER`)
+    REFERENCES `optraj_bdd`.`WORKER` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_SHUTTLE_ID_PHASE`
+    FOREIGN KEY (`ID_PHASE`)
+    REFERENCES `optraj_bdd`.`PHASE` (`ID`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 76
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`PASSENGER`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`PASSENGER` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`PASSENGER` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_SHUTTLE` INT(10) UNSIGNED NOT NULL,
+  `ID_WORKER` INT(10) UNSIGNED NOT NULL,
+  `ID_PICKUP` INT(10) UNSIGNED NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_PASSENGER_ID_SHUTTLE` (`ID_SHUTTLE` ASC),
+  INDEX `FK_PASSENGER_ID_WORKER` (`ID_WORKER` ASC),
+  INDEX `FK_PASSENGER_ID_PICKUP` (`ID_PICKUP` ASC),
+  CONSTRAINT `FK_PASSENGER_ID_PICKUP`
+    FOREIGN KEY (`ID_PICKUP`)
+    REFERENCES `optraj_bdd`.`PICKUP` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_PASSENGER_ID_SHUTTLE`
+    FOREIGN KEY (`ID_SHUTTLE`)
+    REFERENCES `optraj_bdd`.`SHUTTLE` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_PASSENGER_ID_WORKER`
+    FOREIGN KEY (`ID_WORKER`)
+    REFERENCES `optraj_bdd`.`WORKER` (`ID`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`PICKUP_LINK`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`PICKUP_LINK` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`PICKUP_LINK` (
+  `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ID_PICKUP` INT(10) UNSIGNED NOT NULL,
+  `ID_SHUTTLE` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `FK_PICKUP_LINK_ID_PICKUP` (`ID_PICKUP` ASC),
+  INDEX `FK_PICKUP_LINK_ID_SHUTTLE` (`ID_SHUTTLE` ASC),
+  CONSTRAINT `FK_PICKUP_LINK_ID_PICKUP`
+    FOREIGN KEY (`ID_PICKUP`)
+    REFERENCES `optraj_bdd`.`PICKUP` (`ID`)
+    ON DELETE CASCADE,
+  CONSTRAINT `FK_PICKUP_LINK_ID_SHUTTLE`
+    FOREIGN KEY (`ID_SHUTTLE`)
+    REFERENCES `optraj_bdd`.`SHUTTLE` (`ID`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 26
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `optraj_bdd`.`UNAVAILABILITY`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `optraj_bdd`.`UNAVAILABILITY` ;
+
+CREATE TABLE IF NOT EXISTS `optraj_bdd`.`UNAVAILABILITY` (
+  `NUM_WEEK` INT(11) NOT NULL,
+  `NUM_YEAR` INT(11) NOT NULL,
+  `ID_WORKER` INT(10) UNSIGNED NOT NULL,
+  `TYPE` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`NUM_YEAR`, `ID_WORKER`, `NUM_WEEK`),
+  INDEX `FK_ID_WORKER` (`ID_WORKER` ASC),
+  CONSTRAINT `FK_ID_WORKER`
+    FOREIGN KEY (`ID_WORKER`)
+    REFERENCES `optraj_bdd`.`WORKER` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+USE `optraj_bdd`;
+
+DELIMITER $$
+
+USE `optraj_bdd`$$
+DROP TRIGGER IF EXISTS `optraj_bdd`.`POS_SITE_DELETE` $$
+USE `optraj_bdd`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `optraj_bdd`.`POS_SITE_DELETE`
+AFTER DELETE ON `optraj_bdd`.`SITE`
+FOR EACH ROW
+DELETE FROM POSITION WHERE ID=old.ID_POSITION$$
+
+
+USE `optraj_bdd`$$
+DROP TRIGGER IF EXISTS `optraj_bdd`.`POS_WORKER_DELETE` $$
+USE `optraj_bdd`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `optraj_bdd`.`POS_WORKER_DELETE`
+AFTER DELETE ON `optraj_bdd`.`WORKER`
+FOR EACH ROW
+DELETE FROM POSITION WHERE ID=old.ID_POSITION$$
+
+
+USE `optraj_bdd`$$
+DROP TRIGGER IF EXISTS `optraj_bdd`.`PICKUP_ADEL` $$
+USE `optraj_bdd`$$
+CREATE
+DEFINER=`Client`@`%`
+TRIGGER `optraj_bdd`.`PICKUP_ADEL`
+AFTER DELETE ON `optraj_bdd`.`PICKUP`
+FOR EACH ROW
+begin
+delete from POSITION where ID=old.ID_POSITION;
+end$$
+
+
+DELIMITER ;
